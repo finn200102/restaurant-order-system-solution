@@ -1,0 +1,55 @@
+@startuml
+class Restaurant {
+  - tables : dict[int, Table]
+  - menu : Menu
+  + Restaurant(menuFile: str)
+  + addTable(tableNumber: int) : Table
+  + getTable(tableNumber: int) : Table
+  + displayTables() : void
+  + displayMenu() : void
+  + saveBill(tableNumber: int, filename: str) : bool
+}
+
+class Menu {
+  - items : dict[str, float]
+  + Menu(filename: str)
+  + addItem(name: str, price: float) : void
+  + getItemPrice(name: str) : float
+  + displayMenu() : void
+}
+
+class Table {
+  - tableNumber: int
+  - orders : list[Order]
+  + Table(tableNumber: int)
+  + addOrder(order: Order) : void
+  + displayOrders() : void
+  + getBill() : float
+  + removeOrder(index: int) : bool
+}
+
+class Order {
+  - items : list[OrderItem]
+  + Order()
+  + addItem(item: OrderItem) : void
+  + removeItem(index: int) : bool
+  + getTotalPrice() : float
+  + displayOrder() : void
+}
+
+
+class OrderItem {
+    - itemName : str
+    - specialRequests: str
+    - basePrice: float
+    - finalPrice : float
+  + OrderItem(itemName: str, basePrice: float, specialRequests: str)
+  + getFinalPrice() : float
+  + displayItem() : void
+}
+
+Restaurant *-- "1" Menu
+Restaurant *-- "0..*" Table
+Table *-- "0..*" Order
+Order *-- "0..*" OrderItem
+@enduml
