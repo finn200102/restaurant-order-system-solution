@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+venv/
+*.egg-info/
+
+# LaTeX
+*.aux
+*.log
+*.pdf
+*.synctex.gz
+*.out
+*.toc
+*.el
+*.fls
+*.fdb_latexmk
+
+# IDE/OS
+.vscode/
+.DS_Store
