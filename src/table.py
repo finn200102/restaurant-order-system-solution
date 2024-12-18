@@ -12,3 +12,11 @@ class Table:
     def get_bill(self):
         """Returns the total_price of all orders on the table"""
         return sum([order.get_total_price() for order in self.orders])
+    
+    def remove_order(self, idx):
+        """Remove an order at the index idx"""
+        if idx >= 0 and idx < len(self.orders):
+            self.orders.pop(idx)
+            return True
+        else:
+            return False
