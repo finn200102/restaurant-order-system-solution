@@ -14,3 +14,7 @@ class Order:
             return True
         else:
             return False
+        
+    def get_total_price(self):
+        """Calculates and returns the total price of the order"""
+        return sum([item.base_price+ len(item.special_request) for item in self.items])
