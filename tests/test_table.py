@@ -26,8 +26,21 @@ def test_get_bill(table):
     print("test_get_bill passed")
 
 
+def test_remove_order(table):
+    """Test the remove_order method"""
+    order = Order()
+    order_item = OrderItem("pommes", ["marmelade"], 5.6)
+    order.add_item(order_item)
+    table.add_order(order)
+    assert table.remove_order(0) == True
+    assert table.orders == []
+    print("test_remove_order passed")
+
+
 if __name__ == "__main__":
     table = Table(table_number=1)
     test_add_order(table)
     table2 = Table(table_number=1)
     test_get_bill(table2)
+    table3 = Table(table_number=1)
+    test_remove_order(table3)
