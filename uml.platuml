@@ -33,6 +33,7 @@ class Order {
   + Order()
   + addItem(item: OrderItem) : void
   + removeItem(index: int) : bool
+  + addSpecialRequestsToItem(index: int, list[str])
   + getTotalPrice() : float
   + displayOrder() : void
 }
