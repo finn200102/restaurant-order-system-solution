@@ -87,6 +87,7 @@ class Restaurant:
             filepath (str): Storage location for the bills
         """
         bill = self.get_table(idx).get_bill()
+        print(f"Der finale Preis für den Tisch {idx} ist: {bill}")
         with open(filepath, "a", encoding="utf-8") as f:
             f.write(f"table number: {idx}, price: {bill}\n")
 
