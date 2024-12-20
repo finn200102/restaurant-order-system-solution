@@ -1,3 +1,4 @@
+"""Tests for the src/table.py Table class"""
 from src.table import Table
 from src.order import Order
 from src.order_item import OrderItem
