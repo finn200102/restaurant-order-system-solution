@@ -21,7 +21,7 @@ def main():
     restaurant = Restaurant(menue=menue)
     commands = {
         "at": restaurant.add_table,  # add table
-        "aot": restaurant.get_table, # add order to table
+        "aot": restaurant.add_order_to_table, # add order to table
     }
     while True:
         print("Commands are given in the style: command, value1, value2")
