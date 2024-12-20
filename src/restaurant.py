@@ -1,14 +1,15 @@
 from src.order_item import OrderItem
 from src.order import Order
+from src.table import Table
 class Restaurant:
     def __init__(self, menue):
         """Initializes the Restaurant class"""
         self.menue = menue
         self.tables = []
 
-    def add_table(self, table):
-        """Add a table to the restaurant"""
-        self.tables.append(table)
+    def add_table(self, idx):
+        """Add a table to the restaurant with idx"""
+        self.tables.append(Table(idx))
 
     def get_table(self, idx):
         """Returns the table with the idx"""
