@@ -25,6 +25,7 @@ def main():
         "sb": restaurant.save_bill, # save bill to txt
         "rot": restaurant.remove_order_from_table, # remove order from table
         "asr": restaurant.add_special_request_item_to_table, # add special request item to table
+        "dt": restaurant.display_tables, # displays the tables
     }
     def print_commands():
         """Prints out the possible comands with description"""
