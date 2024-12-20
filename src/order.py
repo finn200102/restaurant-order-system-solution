@@ -28,6 +28,6 @@ class Order:
         
     def get_total_price(self):
         """Calculates and returns the total price of the order"""
-        sum = ([item.base_price+ len(item.special_request) for item in self.items])
-        print(f"Der Gesamtbetrag ist: {sum}")
-        return sum
+        summ = sum([item.base_price + len(item.special_request) for item in self.items])
+        print(f"Der Gesamtbetrag ist: {summ}")
+        return summ
