@@ -62,9 +62,24 @@ class Restaurant:
             f.write(f"table number: {idx}, price: {bill}\n")
 
     def display_tables(self):
+        """Shows the Tables of the restaurant"""
         if not self.tables:
             print("Es sind keine Tische vorhanden!")
             return
         print("Folgende Tische sind vorhanden:")
         for table in self.tables:
             print(table.table_number)
+
+    def display_orders(self, idx: int):
+        """Shows the Order of the table idx
+        
+        Args:
+            idx (int): The table number
+        """
+        if not self.get_table(idx).orders:
+            print(f"Es sind keine Bestellungen vorhanden am Tisch {idx}")
+        else:
+            print("Folgende Bestellungen sind vorhanden:")
+            for idx, order in enumerate(self.get_table(idx).orders):
+                print(f"\nBestellung mit index: {idx}:")
+                print(order.list_items())
