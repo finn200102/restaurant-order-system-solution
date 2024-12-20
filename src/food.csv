@@ -1,19 +1,20 @@
-name;typ;categorie;price
-VUNKY-BURGER;main;vegan;12
-FALAFEL-BURGER;main;vegan;13
-CLASSIC-Burger;main;beef;9
-CHEESE-BURGER;main;beef;10
-FOREST-BURGER;main;veggie;12
-CHILI-BURGER;main;beef, hot;12,5
-PIZZA-MARGARITA;main;vegan;9
-PIZZA-HAWAI;main;pork;10
-PIZZA-MOZAARELLA;main;vegan;10
-WASSER (0.3);drink;alcohol-free;2
-WASSER (0.5);drink;alcohol-free;3,5
-COLA (0.4);drink;alcohol-free;3,5
-FANTA (0.4);drink;alcohol-free;3,5
-COLA (0.2);drink;alcohol-free;2,5
-FANTA (0.2);drink;alcohol-free;2,5
-ICE-TEE (Pfirsich);drink;alcohol-free;4
-ICE-TEE (LEMON);drink;alcohol-free;4
-BEER;drink;alcohol;4
+name;price
+VUNKY-BURGER;12,0
+FALAFEL-BURGER;13,0
+CLASSIC-Burger;9,0
+CHEESE-BURGER;10,0
+FOREST-BURGER;12,0
+CHILI-BURGER;12,5
+PIZZA-MARGARITA;9,0
+PIZZA-HAWAI;10,0
+PIZZA-MOZAARELLA;10,0
+WASSER (0.3);2,0
+WASSER (0.5);3,5
+COLA (0.4);3,5
+FANTA (0.4);3,5
+COLA (0.2);2,5
+FANTA (0.2);2,5
+ICE-TEE (Pfirsich);4,0
+ICE-TEE (LEMON);4,0
+BEER;4,0
+Vodka;15,0
