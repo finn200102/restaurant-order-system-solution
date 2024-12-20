@@ -32,7 +32,7 @@ class Restaurant:
 
         
     def add_special_request_item_to_table(self, idx: int, order_item: int, order_id: int, special_request):
-        print(f"Es wurde {special_request} zu dem Orderitem {order_item} der Order {order_id} am Tisch {self.get_table(idx)} hinzugefügt")
+        print(f"Es wurde {special_request} zu dem Orderitem {order_item} der Order {order_id} am Tisch {self.get_table(idx).table_number} hinzugefügt")
         self.get_table(idx).orders[order_id].items[order_item].special_request += special_request
         
         
