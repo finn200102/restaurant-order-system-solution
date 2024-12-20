@@ -15,7 +15,10 @@ class Restaurant:
         Args:
             idx (int): The table number id
         """
+        if self.get_table(idx):
+            print("this table already exists")
         self.tables.append(Table(idx))
+        
 
     def get_table(self, idx):
         """Returns the table with the idx
