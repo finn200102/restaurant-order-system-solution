@@ -1,11 +1,7 @@
 """Test for the src/restaurant.py Restaurant class"""
 __author__ = "7157747, Gellien, 8425470, Heidusch"
 from src.restaurant import Restaurant
-from src.table import Table
 from src.menue import Menu
-from src.order import Order
-from src.order_item import OrderItem
-
 
 def test_add_table():
     """Test the add_table function"""

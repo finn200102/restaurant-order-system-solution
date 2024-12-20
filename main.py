@@ -13,12 +13,10 @@ def convert_arg(arg):
             return float(arg)  # Then try float
         except ValueError:
             return str(arg)    # Keep as string if nothing else works
-        
 
 def main():
     """The main loop of the management sytem"""
-
-    menue = Menu("src/food.csv")    
+    menue = Menu("src/food.csv")
     restaurant = Restaurant(menue=menue)
     commands = {
         "at": restaurant.add_table,  # add table
@@ -38,14 +36,13 @@ def main():
             print(f"\ncommand: {command}\ndocstring: {func.__doc__}\n")
     print("Commands are given in the style: command, value1, value2")
     while True:
-        
+
         command = input("Please give me your comand:\n")
         if command == "q":
             print("You quit the restaurant managment system.")
             break
-        elif command == "h":
+        if command == "h":
             print_commands()
-            
         else:
             try:
                 command = command.split(", ")
@@ -54,18 +51,13 @@ def main():
                 if resp:
                     print(resp)
             except KeyError:
-                print("This command is not implemented or not correct , show possible commands with: h")
+                print("This command is not implemented, show possible commands with: h")
             except ValueError as ve:
                 print(ve)
             except TypeError as te:
                 print(te)
             except Exception as e:
                 print(e)
-
-
-        
-
-
 
 if __name__ == "__main__":
     main()
