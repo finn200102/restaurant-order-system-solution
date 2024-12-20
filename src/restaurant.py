@@ -30,9 +30,13 @@ class Restaurant:
             for order in self.get_table(idx).orders:
                 pass
                 
-                    
-
     
+    def add_special_request_item_to_able(self, idx: int, special_request):
+        print(f"Es wurde {special_request} zu dem Tisch {self.tables[idx]} hinzugefügt")
+        self.tables[idx] += special_request
+        
+
+
     def add_order_to_table(self, idx: int, name: str, special_request: list[str], base_price):
         """Adds an order to a table
         
