@@ -50,7 +50,8 @@ class Order:
             special_requests (list[str]): A list of the special_requests (can be empty)
         """
         print(f"Es wurde '{special_requests}' zu dem folgenden Gericht hinzugefügt: {self.order_item_to_string(self.items[idx])}")
-        self.items[idx] += special_requests
+        self.items[idx].special_request += special_requests
+        
 
         
     def get_total_price(self):

@@ -27,10 +27,10 @@ def test_save_bill():
     menue = Menu("src/food.csv")
     restaurant = Restaurant(menue=menue)
     restaurant.add_table(1)
-    restaurant.add_order_to_table(1, "pommes", ["marmelade"], 5.6)
+    restaurant.add_order_to_table(1, "BEER", ["marmelade"])
     restaurant.save_bill(1, "src/bills.txt")
     with open("src/bills.txt", "r", encoding="utf-8") as f:
-        assert "table number: 1, price: 6.6" in f.read()
+        assert "table number: 1, price: 5.0" in f.read()
     with open("src/bills.txt", 'w', encoding='utf-8') as f:
         pass
     print("test_save_bill passed")
