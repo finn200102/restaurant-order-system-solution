@@ -24,9 +24,27 @@ class Menu:
         except KeyError:
             print("Fehler: Die Datei hat nicht die erwarteten Spalten 'name' und 'price'.")
 
+    def save_menu(self, filename: str = "src/food.csv"):
+        """Saves the menu items to a CSV file, overwriting any existing content"""
+        try:
+            with open(filename, mode='w', encoding='utf-8', newline='') as file:
+                writer = csv.DictWriter(file, fieldnames=['name', 'price'], delimiter=';')
+                writer.writeheader()
+                for name, price in self.items.items():
+                    writer.writerow({
+                        'name': name,
+                        'price': str(price).replace('.', ',')
+                    })
+        except IOError:
+            print(f"Fehler: Die Datei '{filename}' konnte nicht gespeichert werden.")
+
+
+
     def add_item(self, name: str, price: float) -> None:
         """Adds an item to the menu"""
         self.items[name] = price
+        self.save_menu()
+
 
     def get_item_price(self, name: str):
         """gets the price of an item"""
