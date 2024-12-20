@@ -38,7 +38,7 @@ class Restaurant:
         
 
 
-    def add_order_to_table(self, idx: int, name: str, special_request: list[str], base_price):
+    def add_order_to_table(self, idx: int, name: str, special_request: list[str]):
         """Adds an order to a table
         
         Args:
@@ -47,8 +47,11 @@ class Restaurant:
             special_requests (list[str]): A list of the special_requests (can be empty)
             base_price (float or int): The base price of the food
         """
+        price = self.menue.get_item_price(name)
+        if not price:
+            raise ValueError(f"The name: {name} is not in the menue")
         order = Order()
-        order.add_item(OrderItem(name, special_request, base_price))
+        order.add_item(OrderItem(name, special_request, float(price)))
         self.get_table(idx).add_order(order)
 
     def remove_order_from_table(self, idx, order_idx):
