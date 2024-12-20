@@ -33,7 +33,7 @@ class Order:
             idx(int): The index of the OrderItem in self.items
         """
         if idx >= 0 and idx < len(self.items):
-            print(f"Das Gericht '{self.items[idx]}' wurde entfernt")
+            print(f"Das folgende Gericht wurde entfernt:{self.order_item_to_string(self.items[idx])}")
             self.items.pop(idx)
             return True
         else:
@@ -46,7 +46,7 @@ class Order:
             idx (int): The index of the OrderItem in self.items
             special_requests (list[str]): A list of the special_requests (can be empty)
         """
-        print(f"Es wurde '{special_requests}' zu dem Gericht '{self.items[idx]}' hinzugefügt")
+        print(f"Es wurde '{special_requests}' zu dem folgenden Gericht hinzugefügt: {self.order_item_to_string(self.items[idx])}")
         self.items[idx] += special_requests
 
         
