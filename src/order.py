@@ -1,6 +1,5 @@
 """The Order module for the Order class."""
 __author__ = "7157747, Gellien, 8425470, Heidusch"
-from src.order_item import OrderItem
 
 
 class Order:
@@ -44,13 +43,12 @@ class Order:
         Args:
             idx(int): The index of the OrderItem in self.items
         """
-        if idx >= 0 and idx < len(self.items):
+        if 0 <= idx < len(self.items):
             formatted = self.order_item_to_string(self.items[idx])
             print(f"Das folgende Gericht wurde entfernt:{formatted}")
             self.items.pop(idx)
             return True
-        else:
-            return False
+        return False
 
     def add_special_requests_to_item(self, idx: int, special_requests):
         """Add list of special requests to a specific orderitem of the order.
@@ -68,9 +66,9 @@ class Order:
 
     def get_total_price(self):
         """Calculate and returns the total price of the order."""
-        summ = sum([
+        summ = sum(
             item.base_price + len(item.special_request)
             for item in self.items
-            ])
+        )
         print(f"Der Gesamtbetrag ist: {summ}")
         return summ
