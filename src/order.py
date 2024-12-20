@@ -1,14 +1,18 @@
-"""The Order module for the Order class"""
+"""The Order module for the Order class."""
 __author__ = "7157747, Gellien, 8425470, Heidusch"
 from src.order_item import OrderItem
 
+
 class Order:
+    """This is the Order class."""
+
     def __init__(self):
+        """Initilize the Order class."""
         self.items = []
-    
+
     def add_item(self, order_item):
-        """Adds an order to the items list
-        
+        """Add an order to the items list.
+
         Args:
             order_items(OrderItem): an instance of the OrderItem class
         """
@@ -16,7 +20,7 @@ class Order:
         print(f"Das folgende Gericht wurde aufgenommen:{self.order_item_to_string(order_item)}")
 
     def list_items(self):
-        """Returns all the items of the order"""
+        """Return all the items of the order."""
         items = [f"Orderitem {idx}: " + self.order_item_to_string(item) for idx, item in enumerate(self.items)]
         return "".join(items)
         
