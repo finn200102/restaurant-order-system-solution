@@ -26,7 +26,7 @@ class Restaurant:
         """Remove the order_idx order from table idx"""
         self.get_table(idx).remove_order(order_idx)
     
-    def save_bill(self, idx, filepath):
+    def save_bill(self, idx, filepath="src/bills.txt"):
         """Saves the bill to a txt"""
         bill = self.get_table(idx).get_bill()
         with open(filepath, "a", encoding="utf-8") as f:
