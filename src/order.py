@@ -10,7 +10,7 @@ class Order:
             order_items(OrderItem): an instance of the OrderItem class
         """
         self.items.append(order_item)
-        print(f"Das Gericht '{self.order_item_to_string(order_item)}' wurde aufgenommen")
+        print(f"Das folgende Gericht wurde aufgenommen:{self.order_item_to_string(order_item)}")
 
     def list_items(self):
         """Returns all the items of the order"""
@@ -24,7 +24,7 @@ class Order:
         Args:
             order_item(OrderItem): an OrderItem object
         """
-        return f"\nName: {order_item["name"]}\nSpecialrequests: {order_item["special_request"]}\nBaseprice{order_item["base_price"]}\n"
+        return f"\nName: {order_item.name}\nSpecialrequests: {order_item.special_request}\nBaseprice: {order_item.base_price}\n"
 
     def remove_item(self, idx: int):
         """Removes an item of the order
