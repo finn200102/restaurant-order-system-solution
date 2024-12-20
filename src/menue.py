@@ -34,6 +34,6 @@ class Menu:
 
     def display_menu(self):
         """outputs the menu"""
-        for name, price in self.items.items():
-            print(f"{name}: {price:.2f} €")
+        for idx, (name, price) in enumerate(self.items.items()):
+            print(f"{idx}): {name}: {price:.2f} €")
 
