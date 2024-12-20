@@ -1,5 +1,5 @@
-"""Order module"""
-
+"""The Order module for the Order class"""
+__author__ = "7157747, Gellien, 8425470, Heidusch"
 from src.order_item import OrderItem
 
 class Order:

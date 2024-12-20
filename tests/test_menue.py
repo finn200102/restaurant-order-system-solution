@@ -1,4 +1,5 @@
 """Tests for the Menu Class"""
+__author__ = "7157747, Gellien, 8425470, Heidusch"
 from src.menue import Menu
 
 # Create a Menu instance

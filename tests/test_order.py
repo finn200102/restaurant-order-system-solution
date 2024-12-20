@@ -1,4 +1,5 @@
 """Tests for the Order class"""
+__author__ = "7157747, Gellien, 8425470, Heidusch"
 from src.order import Order
 from src.order_item import OrderItem
 

@@ -1,4 +1,5 @@
 """Datastructure for an order item"""
+__author__ = "7157747, Gellien, 8425470, Heidusch"
 
 class OrderItem:
     def __init__(self, name: str, special_request: str, base_price: float):

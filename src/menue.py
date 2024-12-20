@@ -1,5 +1,5 @@
-"""Menue Module."""
-
+"""The Menue Module for the Module class."""
+__author__ = "7157747, Gellien, 8425470, Heidusch"
 import csv
 
 

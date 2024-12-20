@@ -1,4 +1,5 @@
 """Tests for the src/table.py Table class"""
+__author__ = "7157747, Gellien, 8425470, Heidusch"
 from src.table import Table
 from src.order import Order
 from src.order_item import OrderItem

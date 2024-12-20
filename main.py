@@ -1,4 +1,5 @@
 """This it the main loop module for the restaurant managment system"""
+__author__ = "7157747, Gellien, 8425470, Heidusch"
 from src.restaurant import Restaurant
 from src.menue import Menu
 

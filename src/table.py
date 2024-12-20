@@ -1,3 +1,5 @@
+"""This is the table module for the Table class"""
+__author__ = "7157747, Gellien, 8425470, Heidusch"
 from src.order import Order
 class Table:
     def __init__(self, table_number: int):
