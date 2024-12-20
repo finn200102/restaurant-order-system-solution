@@ -32,6 +32,15 @@ class Restaurant:
 
         
     def add_special_request_item_to_table(self, idx: int, order_item: int, order_id: int, special_request):
+        """Adds a special request to an order with an orderitem
+        
+        Args:
+            idx (int): The table number
+            order_item (int): The index of the OrderItem
+            order_id (int): The index of the Order
+            name (str): The name of the food
+            special_requests (list[str]): A list of the special_requests (can be empty)
+        """
         print(f"Es wurde {special_request} zu dem Orderitem {order_item} der Order {order_id} am Tisch {self.get_table(idx).table_number} hinzugefügt")
         self.get_table(idx).orders[order_id].items[order_item].special_request += special_request
         
