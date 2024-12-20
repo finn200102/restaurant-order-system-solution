@@ -17,11 +17,13 @@ class Order:
             order_items(OrderItem): an instance of the OrderItem class
         """
         self.items.append(order_item)
-        print(f"Das folgende Gericht wurde aufgenommen:{self.order_item_to_string(order_item)}")
+        formatted = self.order_item_to_string(order_item)
+        print(f"Das folgende Gericht wurde aufgenommen:{formatted}")
 
     def list_items(self):
         """Return all the items of the order."""
-        items = [f"Orderitem {idx}: " + self.order_item_to_string(item) for idx, item in enumerate(self.items)]
+        items = [f"Orderitem {idx}: " + self.order_item_to_string(item)
+                 for idx, item in enumerate(self.items)]
         return "".join(items)
         
         

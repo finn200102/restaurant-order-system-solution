@@ -17,7 +17,8 @@ class Restaurant:
         """
         if self.get_table(idx):
             print("this table already exists")
-        self.tables.append(Table(idx))
+        else:
+            self.tables.append(Table(idx))
         
 
     def get_table(self, idx):
