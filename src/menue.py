@@ -24,15 +24,15 @@ class Menu:
         except KeyError:
             print("Fehler: Die Datei hat nicht die erwarteten Spalten 'name' und 'price'.")
 
-    def addItem(self, name: str, price: float) -> None:
+    def add_item(self, name: str, price: float) -> None:
         """Adds an item to the menu"""
         self.items[name] = price
 
-    def getItemPrice(self, name: str):
+    def get_item_price(self, name: str):
         """gets the price of an item"""
         return self.items.get(name)
 
-    def displayMenu(self):
+    def display_menu(self):
         """outputs the menu"""
         for name, price in self.items.items():
             print(f"{name}: {price:.2f} €")

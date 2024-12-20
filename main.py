@@ -27,6 +27,7 @@ def main():
         "asr": restaurant.add_special_request_item_to_table, # add special request item to table
         "dt": restaurant.display_tables, # displays the tables
         "do": restaurant.display_orders, # display the orders at a table
+        "dm": restaurant.display_menue, # display the menue
     }
     def print_commands():
         """Prints out the possible comands with description"""

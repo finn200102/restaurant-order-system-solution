@@ -83,3 +83,7 @@ class Restaurant:
             for idx, order in enumerate(self.get_table(idx).orders):
                 print(f"\nBestellung mit index: {idx}:")
                 print(order.list_items())
+
+    def display_menue(self):
+        """Displays the menue"""
+        self.menue.display_menu()
