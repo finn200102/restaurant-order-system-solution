@@ -79,7 +79,11 @@ class Restaurant:
         Args:
             idx (int): The table number
         """
-        if not self.get_table(idx).orders:
+        if self.tables == []:
+            print("Es gibt noch keine Tische")
+        elif self.get_table(idx) == None:
+            print("Die Tisch nummer gibt es noch nicht.")
+        elif not self.get_table(idx).orders:
             print(f"Es sind keine Bestellungen vorhanden am Tisch {idx}")
         else:
             print("Folgende Bestellungen sind vorhanden:")
