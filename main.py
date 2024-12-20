@@ -32,11 +32,12 @@ def main():
     def print_commands():
         """Prints out the possible comands with description"""
         print("For each of the following commands the functions docstring will be printed")
-        for command, func in commands.items():
-            print(f"command: {command}\ndocstring: {func.__doc__}")
-
-    while True:
         print("Commands are given in the style: command, value1, value2")
+        for command, func in commands.items():
+            print(f"\ncommand: {command}\ndocstring: {func.__doc__}\n")
+    print("Commands are given in the style: command, value1, value2")
+    while True:
+        
         command = input("Please give me your comand:\n")
         if command == "q":
             print("You quit the restaurant managment system.")
@@ -53,6 +54,13 @@ def main():
                     print(resp)
             except KeyError:
                 print("This command is not implemented or not correct , show possible commands with: h")
+            except ValueError as ve:
+                print(ve)
+            except TypeError as te:
+                print(te)
+            except Exception as e:
+                print(e)
+
 
         
 
