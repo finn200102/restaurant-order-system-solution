@@ -1,14 +1,15 @@
-"""Tests for the Menue Class"""
+"""Tests for the Menu Class"""
 from src.menue import Menu
 
+# Create a Menu instance
+m = Menu("src/food.csv")  # Initialize with filename
 
-m = Menu.menu("food.csv")
-"""tests the output from the menu"""
-m.displayMenu()
+# Test the menu display
+m.display_menu()
 
-"""Tests the addition of items"""
-m.addItem(str.upper("Vodka",15.0))
-m.displayMenu()
+# Test adding an item
+m.add_item("Vodka", 15.0)
+m.display_menu()
 
-"""tests the award of a prize"""
-print(m.etItemPrice(str.upper("fanta (0.4)")))
+# Test getting an item price
+print(m.get_item_price("FANTA (0.4)"))
