@@ -67,7 +67,3 @@ class Restaurant:
         print("Folgende Tische sind vorhanden:")
         for table in self.tables:
             print(table.table_number)
-m = Restaurant("Hallo")
-m.add_table(2)
-m.add_table(3)
-m.display_tables()
