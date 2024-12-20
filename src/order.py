@@ -25,43 +25,52 @@ class Order:
         items = [f"Orderitem {idx}: " + self.order_item_to_string(item)
                  for idx, item in enumerate(self.items)]
         return "".join(items)
-        
-        
+
     def order_item_to_string(self, order_item):
-        """Returns an OrderItem object as a string
-        
+        """Return an OrderItem object as a string.
+
         Args:
             order_item(OrderItem): an OrderItem object
         """
-        return f"\nName: {order_item.name}\nSpecialrequests: {order_item.special_request}\nBaseprice: {order_item.base_price}\n"
+        return (
+            f"\nName: {order_item.name}\n"
+            f"Specialrequests: {order_item.special_request}\n"
+            f"Baseprice: {order_item.base_price}\n"
+                )
 
     def remove_item(self, idx: int):
-        """Removes an item of the order
-        
+        """Remove an item of the order.
+
         Args:
             idx(int): The index of the OrderItem in self.items
         """
         if idx >= 0 and idx < len(self.items):
-            print(f"Das folgende Gericht wurde entfernt:{self.order_item_to_string(self.items[idx])}")
+            formatted = self.order_item_to_string(self.items[idx])
+            print(f"Das folgende Gericht wurde entfernt:{formatted}")
             self.items.pop(idx)
             return True
         else:
             return False
-        
+
     def add_special_requests_to_item(self, idx: int, special_requests):
-        """Adds list of special requests to a specific orderitem of the order
-        
+        """Add list of special requests to a specific orderitem of the order.
+
         Args:
             idx (int): The index of the OrderItem in self.items
-            special_requests (list[str]): A list of the special_requests (can be empty)
+            special_requests (list[str]): A list of the special_requests
         """
-        print(f"Es wurde '{special_requests}' zu dem folgenden Gericht hinzugefügt: {self.order_item_to_string(self.items[idx])}")
         self.items[idx].special_request += special_requests
-        
+        print(
+             f"Es wurde '{special_requests}' zu dem folgenden "
+             f"Gericht hinzugefügt: "
+             f"{self.order_item_to_string(self.items[idx])}"
+            )
 
-        
     def get_total_price(self):
-        """Calculates and returns the total price of the order"""
-        summ = sum([item.base_price + len(item.special_request) for item in self.items])
+        """Calculate and returns the total price of the order."""
+        summ = sum([
+            item.base_price + len(item.special_request)
+            for item in self.items
+            ])
         print(f"Der Gesamtbetrag ist: {summ}")
         return summ
