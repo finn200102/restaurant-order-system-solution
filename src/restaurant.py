@@ -20,6 +20,19 @@ class Restaurant:
         matches =  [t for t in self.tables if t.table_number == idx]
         return matches[0] if matches else None
     
+    def list_orders(self, idx: int):
+        """Prints a list of the orders
+
+        Args:
+            idx (int): The table number
+        """
+        if self.get_table(idx).orders:
+            for order in self.get_table(idx).orders:
+                pass
+                
+                    
+
+    
     def add_order_to_table(self, idx: int, name: str, special_request: list[str], base_price):
         """Adds an order to a table
         

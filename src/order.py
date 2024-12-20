@@ -8,6 +8,9 @@ class Order:
         self.items.append(order_item)
         print(f"Das Gericht '{order_item}' wurde aufgenommen")
 
+    def list_items(self):
+        """Returns all the items of the order"""
+
     def remove_item(self, idx: int):
         """Removes an item of the order"""
         if idx >= 0 and idx < len(self.items):
