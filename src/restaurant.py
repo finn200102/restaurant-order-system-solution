@@ -1,3 +1,5 @@
+"""The restaurant module for the Restaurant class"""
+__author__ = "7157747, Gellien, 8425470, Heidusch"
 from src.order_item import OrderItem
 from src.order import Order
 from src.table import Table
@@ -34,10 +36,12 @@ class Restaurant:
             for order in self.get_table(idx).orders:
                 pass
                 
-    
-    def add_special_request_item_to_able(self, idx: int, special_request):
-        print(f"Es wurde {special_request} zu dem Tisch {self.tables[idx]} hinzugefügt")
-        self.tables[idx] += special_request
+        
+    def add_special_request_item_to_table(self, idx: int, order_item: int, order_id: int, special_request):
+        print(f"Es wurde {special_request} zu dem Orderitem {order_item} der Order {order_id} am Tisch {self.get_table(idx)} hinzugefügt")
+        self.get_table(idx).orders[order_id].items[order_item].special_request += special_request
+        
+
 
 
 
@@ -82,3 +86,27 @@ class Restaurant:
         print("Folgende Tische sind vorhanden:")
         for table in self.tables:
             print(table.table_number)
+
+
+    def display_orders(self, idx: int):
+        """Shows the Order of the table idx
+        
+        Args:
+            idx (int): The table number
+        """
+        if self.tables == []:
+            print("Es gibt noch keine Tische")
+        elif self.get_table(idx) == None:
+            print("Die Tisch nummer gibt es noch nicht.")
+        elif not self.get_table(idx).orders:
+            print(f"Es sind keine Bestellungen vorhanden am Tisch {idx}")
+        else:
+            print("Folgende Bestellungen sind vorhanden:")
+            for idx, order in enumerate(self.get_table(idx).orders):
+                print(f"\nBestellung mit index: {idx}:")
+                print(order.list_items())
+
+
+    def display_menue(self):
+        """Displays the menue"""
+        self.menue.display_menu()
