@@ -31,9 +31,9 @@ class Restaurant:
                 pass
                 
     
-    def add_special_request_item_to_table(self, idx: int, order_item: int, order_id: int, special_request):
-        print(f"Es wurde {special_request} zu dem Orderitem {order_item} der Order {order_id} am Tisch {self.get_table(idx)} hinzugefügt")
-        self.get_table(idx).orders[order_id].items[order_item].special_request += special_request
+    def add_special_request_item_to_able(self, idx: int, special_request):
+        print(f"Es wurde {special_request} zu dem Tisch {self.tables[idx]} hinzugefügt")
+        self.tables[idx] += special_request
         
 
 
@@ -59,3 +59,11 @@ class Restaurant:
         bill = self.get_table(idx).get_bill()
         with open(filepath, "a", encoding="utf-8") as f:
             f.write(f"table number: {idx}, price: {bill}\n")
+
+    def display_tables(self):
+        if not self.tables:
+            print("Es sind keine Tische vorhanden!")
+            return
+        print("Folgende Tische sind vorhanden:")
+        for table in self.tables:
+            print(table.table_number)
