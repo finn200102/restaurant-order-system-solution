@@ -7,8 +7,12 @@ class Restaurant:
         self.menue = menue
         self.tables = []
 
-    def add_table(self, idx):
-        """Add a table to the restaurant with idx"""
+    def add_table(self, idx: int):
+        """Add a table to the restaurant with idx
+        
+        Args:
+            idx (int): The table number id
+        """
         self.tables.append(Table(idx))
 
     def get_table(self, idx):
@@ -16,8 +20,15 @@ class Restaurant:
         matches =  [t for t in self.tables if t.table_number == idx]
         return matches[0] if matches else None
     
-    def add_order_to_table(self, idx, name, special_request, base_price):
-        """Adds an order to a table"""
+    def add_order_to_table(self, idx: int, name: str, special_request: list[str], base_price):
+        """Adds an order to a table
+        
+        Args:
+            idx (int): The table number
+            name (str): The name of the food
+            special_requests (list[str]): A list of the special_requests (can be empty)
+            base_price (float or int): The base price of the food
+        """
         order = Order()
         order.add_item(OrderItem(name, special_request, base_price))
         self.get_table(idx).add_order(order)
