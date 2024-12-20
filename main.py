@@ -14,8 +14,6 @@ def convert_arg(arg):
             return str(arg)    # Keep as string if nothing else works
         
 
-
-
 def main():
     """The main loop of the management sytem"""
 
@@ -25,6 +23,7 @@ def main():
         "at": restaurant.add_table,  # add table
         "aot": restaurant.add_order_to_table, # add order to table
         "sb": restaurant.save_bill, # save bill to txt
+        "rot": restaurant.remove_order_from_table # remove order from table
     }
     def print_commands():
         """Prints out the possible comands with description"""
