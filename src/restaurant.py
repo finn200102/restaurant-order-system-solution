@@ -52,7 +52,7 @@ class Restaurant:
         )
 
     def add_order_to_table(self, idx: int, name: str,
-                           special_request: list[str]):
+                           special_request: list[str] = []):
         """Add an order to a table.
 
         Args:

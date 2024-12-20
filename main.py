@@ -6,13 +6,20 @@ from src.menue import Menu
 
 def convert_arg(arg):
     """Converts the input value of type string to the right type"""
+    # Check if input looks like a list
+    if arg.startswith('[') and arg.endswith(']'):
+        # Remove brackets and split by comma
+        items = arg[1:-1].split(',')
+        # Convert each item in the list recursively
+        return [convert_arg(item.strip()) for item in items]
+
     try:
-        return int(arg)  # First try integer
+        return int(arg)  # Try integer first
     except ValueError:
         try:
             return float(arg)  # Then try float
         except ValueError:
-            return str(arg)    # Keep as string if nothing else works
+            return str(arg)  # Keep as string if nothing else works
 
 def main():
     """The main loop of the management sytem"""
