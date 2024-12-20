@@ -73,6 +73,56 @@ Entwicklung eines Restaurant-Bestellsystems zur Verwaltung von Tischen, Bestellu
     \item Verwendete Bibliotheken: Standard Python Libraries
 \end{itemize}
 
+\subsubsection{Befehlsschnittstelle (Command Interface)}
+Das System implementiert folgende Hauptbefehle:
+
+\begin{itemize}
+    \item \textbf{at (add table)}
+    \begin{itemize}
+        \item Syntax: at, [Tischnummer]
+        \item Funktion: Fügt einen neuen Tisch mit der angegebenen Nummer hinzu
+        \item Beispiel: at, 1
+    \end{itemize}
+
+    \item \textbf{aot (add order to table)}
+    \begin{itemize}
+        \item Syntax: aot, [Tischnummer], [Speisename], [Sonderwünsche], [Grundpreis]
+        \item Funktion: Fügt eine neue Bestellung einem bestimmten Tisch hinzu
+        \item Beispiel: aot, 1, Pizza, [``ohne Zwiebeln''], 12.50
+    \end{itemize}
+
+    \item \textbf{sb (save bill)}
+    \begin{itemize}
+        \item Syntax: sb, [Tischnummer]
+        \item Funktion: Speichert die Rechnung für einen bestimmten Tisch in bills.txt
+        \item Beispiel: sb, 1
+    \end{itemize}
+
+    \item \textbf{rot (remove order from table)}
+    \begin{itemize}
+        \item Syntax: rot, [Tischnummer], [Bestellungs-Index]
+        \item Funktion: Entfernt eine bestimmte Bestellung von einem Tisch
+        \item Beispiel: rot, 1, 0
+    \end{itemize}
+
+    \item \textbf{asr (add special request)}
+    \begin{itemize}
+        \item Syntax: asr, [Tischnummer], [Artikel-Index], [Bestellungs-Index], [Sonderwunsch]
+        \item Funktion: Fügt einen Sonderwunsch zu einem bestehenden Bestellartikel hinzu
+        \item Beispiel: asr, 1, 0, 0, [``ohne Zwiebeln'']
+    \end{itemize}
+
+    \item \textbf{Hilfsbefehle}
+    \begin{itemize}
+        \item h: Zeigt alle verfügbaren Befehle mit Beschreibung an (docstring)
+        \item q: Beendet das Programm
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Befehlsverarbeitung}
+Das System verarbeitet Befehle im Format: ``Befehl, Wert1, Wert2, ...'' und konvertiert die Eingabewerte automatisch in die entsprechenden Datentypen (Integer, Float oder String). Fehlerhafte Befehle werden abgefangen und mit entsprechenden Hinweisen quittiert.
+
+
 \section{Test}
 \subsection{Testfälle}
 \begin{itemize}
@@ -130,7 +180,7 @@ Restaurant-Bestellsystem zur Verwaltung von Tischen, Bestellungen und Rechnungen
 
 \subsection{Installation und Bedienung}
 \begin{itemize}
-    \item Installation: 
+    \item Installation:
     \begin{itemize}
         \item Git Repository klonen
         \item `pip install -e .` ausführen
