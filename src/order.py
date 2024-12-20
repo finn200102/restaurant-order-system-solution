@@ -1,4 +1,7 @@
 """Order module"""
+
+from order_item import OrderItem
+
 class Order:
     def __init__(self):
         self.items = []
@@ -55,3 +58,13 @@ class Order:
         summ = sum([item.base_price + len(item.special_request) for item in self.items])
         print(f"Der Gesamtbetrag ist: {summ}")
         return summ
+    
+    def display_orders(self):
+        """Shows the Order"""
+        if not self.items:
+            print("Es sind keine Bestellungen vorhanden")
+            return
+        print("Folgende Bestellungen sind vorhanden")
+        for idx, order_item in enumerate(self.items):
+            print(f"\nBestellung {idx + 1}:")
+            print(self.order_item_to_string(order_item))
