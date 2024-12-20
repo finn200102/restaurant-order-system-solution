@@ -1,29 +1,153 @@
-\documentclass[a4paper, 11pt]{article}
+\documentclass[a4paper,11pt]{article}
 
-% Packages
-\usepackage[utf8]{inputenc} % Character encoding
-\usepackage[T1]{fontenc}    % Font encoding
-\usepackage{amsmath}        % Math symbols
-\usepackage{amsfonts}       % Math fonts
-\usepackage{amssymb}        % Additional math symbols
-\usepackage{graphicx}       % Include graphics
-\usepackage{hyperref}       % Hyperlinks
-\usepackage{geometry}       % Page layout
-\geometry{margin=1in}      % Set margins
+\usepackage[german]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{enumitem}
 
-% Title and author information
-\title{Dokumentation}
-\author{}
-\date{\today}              % Current date
+\title{Programm-Dokumentation: Restaurant-Bestellsystem}
+\author{[Name]}
+\date{\today}
 
 \begin{document}
+\maketitle
 
-\maketitle                 % Create title
+\section{Analyse}
 
-\begin{abstract}
+\subsection{Aufgabenstellung}
+Entwicklung eines Restaurant-Bestellsystems zur Verwaltung von Tischen, Bestellungen und Rechnungen. Das System soll die Möglichkeit bieten, Bestellungen aufzunehmen, zu modifizieren und Rechnungen zu erstellen.
 
-\end{abstract}
+\subsection{Analyse der Problemstellung}
+\subsubsection{Ein- und Ausgabe}
+\begin{itemize}
+    \item Eingabe:
+    \begin{itemize}
+        \item CSV-Datei mit Speisekarte (food.csv)
+        \item Benutzerkommandos über Konsoleneingabe
+        \item Tischnummern und Bestellungen
+    \end{itemize}
 
-\section{Introduction}
+    \item Ausgabe:
+    \begin{itemize}
+        \item Konsolenausgabe für Menü und Bestellübersicht
+        \item Rechnungen als Textdateien (bills.txt)
+        \item Statusmeldungen und Fehlermeldungen
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Annahmen}
+\begin{itemize}
+    \item Eindeutige Tischnummern
+    \item Gültige Preise (positive Zahlen)
+    \item Speisekarte ist im CSV-Format verfügbar
+    \item Bestellungen werden pro Tisch gespeichert
+\end{itemize}
+
+
+
+\subsubsection{Programmstruktur}
+\begin{itemize}
+    \item Klassen:
+    \begin{itemize}
+        \item Restaurant: Hauptklasse zur Verwaltung
+        \item Menu: Verwaltung der Speisekarte
+        \item Table: Verwaltung einzelner Tische
+        \item Order: Verwaltung von Bestellungen
+        \item OrderItem: Einzelne Bestellposition
+    \end{itemize}
+    \item Schnittstellen:
+    \begin{itemize}
+        \item CSV-Datei Interface für Menüverwaltung
+        \item Textdatei Interface für Rechnungen
+    \end{itemize}
+\end{itemize}
+
+\section{Coding}
+\begin{itemize}
+    \item Implementierungssprache: Python 3
+    \item Projektstruktur: Modulares Design mit separaten Klassen
+    \item Verwendete Bibliotheken: Standard Python Libraries
+\end{itemize}
+
+\section{Test}
+\subsection{Testfälle}
+\begin{itemize}
+    \item Testfall 1: test\_add\_item
+    \begin{itemize}
+        \item Äquivalenzklasse: Bestellverwaltung
+        \item Test-Typ: Funktional
+        \item Repräsentant: Erstellt OrderItem pommes mit Sonderwunsch marmelade
+        \item Soll-Ergebnis: item.name == pommes
+        \item Kommentar: Prüft korrektes Hinzufügen zur Bestellung
+        \item Status: Erfüllt yes
+    \end{itemize}
+    \item Testfall 2: test\_remove\_item
+    \begin{itemize}
+        \item Äquivalenzklasse: Bestellverwaltung
+        \item Test-Typ: Funktional
+        \item Repräsentant: Entfernt Item an Index 0
+        \item Soll-Ergebnis: remove\_item(0) == True
+        \item Kommentar: Validiert erfolgreiche Entfernung
+        \item Status: Erfüllt yes
+    \end{itemize}
+    \item Testfall 3: test\_add\_table
+    \begin{itemize}
+        \item Äquivalenzklasse: Tischverwaltung
+        \item Test-Typ: Funktional
+        \item Repräsentant: Erstellt und verknüpft Bestellkette
+        \item Soll-Ergebnis: tables[0] == table
+        \item Kommentar: Prüft Integration in Restaurant-Objekt
+        \item Status: Erfüllt yes
+    \end{itemize}
+  \item Testfall 4: test\_add\_order
+    \begin{itemize}
+        \item Äquivalenzklasse: Tischverwaltung
+        \item Test-Typ: Funktional
+        \item Repräsentant: Verknüpft Bestellung mit Tisch
+        \item Soll-Ergebnis: orders[0] == order
+        \item Kommentar: Validiert korrekte Zuordnung
+        \item Status: Erfüllt ye
+    \end{itemize}
+\end{itemize}
+
+
+
+
+\section{README}
+\subsection{Projektbeschreibung}
+Restaurant-Bestellsystem zur Verwaltung von Tischen, Bestellungen und Rechnungen in Python.
+
+\subsection{Systemanforderungen}
+\begin{itemize}
+    \item Python 3.10 oder höher
+    \item Standardbibliotheken
+    \item Betriebssystem: Plattformunabhängig
+\end{itemize}
+
+\subsection{Installation und Bedienung}
+\begin{itemize}
+    \item Installation: 
+    \begin{itemize}
+        \item Git Repository klonen
+        \item `pip install -e .` ausführen
+    \end{itemize}
+    \item Startanweisungen:
+    \begin{itemize}
+        \item Python-Skript aus src/ ausführen
+        \item Speisekarte (food.csv) muss vorhanden sein
+    \end{itemize}
+    \item Bedienungshinweise:
+    \begin{itemize}
+        \item Tische über Nummer verwalten
+        \item Bestellungen pro Tisch aufgeben
+        \item Rechnungen über Tischnummer erstellen
+    \end{itemize}
+\end{itemize}
+
+\subsection{Bekannte Fehler}
+Keine bekannten Fehler
 
 \end{document}
