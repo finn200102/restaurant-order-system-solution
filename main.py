@@ -12,6 +12,8 @@ def convert_arg(arg):
             return float(arg)  # Then try float
         except ValueError:
             return str(arg)    # Keep as string if nothing else works
+        
+
 
 
 def main():
@@ -22,13 +24,23 @@ def main():
     commands = {
         "at": restaurant.add_table,  # add table
         "aot": restaurant.add_order_to_table, # add order to table
+        "sb": restaurant.save_bill, # save bill to txt
     }
+    def print_commands():
+        """Prints out the possible comands with description"""
+        print("For each of the following commands the functions docstring will be printed")
+        for command, func in commands.items():
+            print(f"command: {command}: docstring: {func.__doc__}")
+
     while True:
         print("Commands are given in the style: command, value1, value2")
         command = input("Please give me your comand:\n")
         if command == "q":
             print("You quit the restaurant managment system.")
             break
+        elif command == "h":
+            print_commands()
+            
         else:
             try:
                 command = command.split(", ")
